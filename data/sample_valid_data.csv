@@ -1,0 +1,301 @@
+record_date,facility_code,production_volume,operating_hours,downtime_hours,pressure_kpa,temperature_c,notes
+2026-07-01,NSF-001,1139.02,23.86,0.14,170.93,81.13,Routine operation
+2026-07-01,RDR-002,696.12,19.15,4.85,127.39,51.7,Reduced output; review recommended
+2026-07-01,CLG-003,1353.22,23.97,0.03,190.24,54.1,Routine operation
+2026-07-01,MTV-004,464.98,19.49,4.51,114.48,72.7,Reduced output; review recommended
+2026-07-01,STF-005,888.05,21.8,2.2,140.48,66.62,Routine operation
+2026-07-02,NSF-001,1129.12,22.64,1.36,174.07,84.97,Routine operation
+2026-07-02,RDR-002,803.81,20.66,3.34,158.96,69.12,Routine operation
+2026-07-02,CLG-003,1511.8,21.17,2.83,170.21,61.6,Routine operation
+2026-07-02,MTV-004,707.98,21.09,2.91,162.87,48.47,Routine operation
+2026-07-02,STF-005,994.43,22.82,1.18,143.07,61.19,Routine operation
+2026-07-03,NSF-001,1090.29,22.92,1.08,167.87,76.44,Routine operation
+2026-07-03,RDR-002,823.42,23.41,0.59,131.6,73.6,Routine operation
+2026-07-03,CLG-003,1362.51,21.51,2.49,197.8,51.99,Routine operation
+2026-07-03,MTV-004,737.77,22.86,1.14,147.0,47.36,Routine operation
+2026-07-03,STF-005,978.8,22.91,1.09,153.17,67.89,Routine operation
+2026-07-04,NSF-001,1263.7,22.04,1.96,185.49,58.61,Routine operation
+2026-07-04,RDR-002,861.36,23.13,0.87,130.14,75.17,Routine operation
+2026-07-04,CLG-003,1577.92,21.15,2.85,196.43,56.04,Routine operation
+2026-07-04,MTV-004,798.45,22.45,1.55,169.81,47.99,Routine operation
+2026-07-04,STF-005,1074.52,22.61,1.39,139.4,75.99,Routine operation
+2026-07-05,NSF-001,783.24,16.8,7.2,134.49,79.42,Reduced output; review recommended
+2026-07-05,RDR-002,905.45,21.99,2.01,157.92,73.46,Routine operation
+2026-07-05,CLG-003,1494.09,21.71,2.29,201.88,82.12,Routine operation
+2026-07-05,MTV-004,705.99,20.69,3.31,157.7,57.03,Routine operation
+2026-07-05,STF-005,891.65,23.63,0.37,178.62,46.09,Routine operation
+2026-07-06,NSF-001,723.53,19.14,4.86,135.89,57.01,Reduced output; review recommended
+2026-07-06,RDR-002,941.96,21.03,2.97,146.81,78.68,Routine operation
+2026-07-06,CLG-003,1604.76,22.02,1.98,172.78,86.15,Routine operation
+2026-07-06,MTV-004,739.75,22.82,1.18,125.14,49.77,Routine operation
+2026-07-06,STF-005,1008.64,20.83,3.17,145.86,62.45,Routine operation
+2026-07-07,NSF-001,1146.76,21.98,2.02,156.67,60.78,Routine operation
+2026-07-07,RDR-002,950.96,20.73,3.27,158.24,73.91,Routine operation
+2026-07-07,CLG-003,1252.67,22.91,1.09,165.72,50.09,Routine operation
+2026-07-07,MTV-004,344.46,12.64,11.36,102.16,87.78,Major interruption; investigation required
+2026-07-07,STF-005,1073.51,21.89,2.11,155.25,63.85,Routine operation
+2026-07-08,NSF-001,1088.47,22.01,1.99,178.48,62.2,Routine operation
+2026-07-08,RDR-002,890.11,20.73,3.27,171.23,54.05,Routine operation
+2026-07-08,CLG-003,1465.61,22.71,1.29,184.39,79.07,Routine operation
+2026-07-08,MTV-004,674.21,21.5,2.5,163.06,51.99,Routine operation
+2026-07-08,STF-005,735.37,16.79,7.21,127.11,45.57,Reduced output; review recommended
+2026-07-09,NSF-001,1022.29,23.13,0.87,176.14,76.97,Routine operation
+2026-07-09,RDR-002,991.05,23.57,0.43,139.12,68.06,Routine operation
+2026-07-09,CLG-003,1474.92,21.11,2.89,152.55,50.68,Routine operation
+2026-07-09,MTV-004,720.89,22.08,1.92,136.18,61.16,Routine operation
+2026-07-09,STF-005,380.62,13.1,10.9,119.22,96.72,Major interruption; investigation required
+2026-07-10,NSF-001,1217.52,22.26,1.74,146.95,52.79,Routine operation
+2026-07-10,RDR-002,663.9,18.9,5.1,124.09,49.34,Reduced output; review recommended
+2026-07-10,CLG-003,1565.69,20.77,3.23,162.78,83.79,Routine operation
+2026-07-10,MTV-004,857.6,20.68,3.32,136.36,62.56,Routine operation
+2026-07-10,STF-005,1065.5,23.98,0.02,160.44,56.64,Routine operation
+2026-07-11,NSF-001,1057.63,21.15,2.85,168.28,82.26,Routine operation
+2026-07-11,RDR-002,821.8,23.65,0.35,137.52,52.37,Routine operation
+2026-07-11,CLG-003,1511.63,24.0,0.0,177.58,78.19,Routine operation
+2026-07-11,MTV-004,668.64,20.65,3.35,134.88,44.89,Routine operation
+2026-07-11,STF-005,610.84,18.29,5.71,133.58,79.65,Reduced output; review recommended
+2026-07-12,NSF-001,847.35,17.19,6.81,136.17,52.6,Reduced output; review recommended
+2026-07-12,RDR-002,828.21,21.76,2.24,173.85,76.62,Routine operation
+2026-07-12,CLG-003,1405.47,21.11,2.89,194.69,69.57,Routine operation
+2026-07-12,MTV-004,680.87,23.07,0.93,138.92,44.32,Routine operation
+2026-07-12,STF-005,867.41,23.35,0.65,184.79,81.32,Routine operation
+2026-07-13,NSF-001,1100.24,23.25,0.75,143.9,76.83,Routine operation
+2026-07-13,RDR-002,382.04,15.73,8.27,112.23,95.64,Major interruption; investigation required
+2026-07-13,CLG-003,1010.52,18.75,5.25,144.68,55.51,Reduced output; review recommended
+2026-07-13,MTV-004,787.34,23.93,0.07,167.83,62.02,Routine operation
+2026-07-13,STF-005,713.59,19.25,4.75,130.24,51.79,Reduced output; review recommended
+2026-07-14,NSF-001,1162.25,21.68,2.32,173.17,70.43,Routine operation
+2026-07-14,RDR-002,941.34,23.52,0.48,170.2,51.59,Routine operation
+2026-07-14,CLG-003,1148.1,18.99,5.01,148.51,64.05,Reduced output; review recommended
+2026-07-14,MTV-004,835.55,23.11,0.89,135.66,49.29,Routine operation
+2026-07-14,STF-005,947.03,22.04,1.96,148.58,57.91,Routine operation
+2026-07-15,NSF-001,1069.28,23.89,0.11,141.13,63.84,Routine operation
+2026-07-15,RDR-002,824.62,22.82,1.18,133.68,57.63,Routine operation
+2026-07-15,CLG-003,1265.57,21.81,2.19,170.99,85.85,Routine operation
+2026-07-15,MTV-004,701.13,21.42,2.58,130.81,56.41,Routine operation
+2026-07-15,STF-005,1118.24,23.35,0.65,181.54,59.4,Routine operation
+2026-07-16,NSF-001,1244.31,23.03,0.97,153.47,52.65,Routine operation
+2026-07-16,RDR-002,822.15,23.22,0.78,151.13,50.44,Routine operation
+2026-07-16,CLG-003,1253.58,21.3,2.7,161.2,55.33,Routine operation
+2026-07-16,MTV-004,821.62,22.58,1.42,126.95,66.23,Routine operation
+2026-07-16,STF-005,930.78,21.31,2.69,142.0,47.89,Routine operation
+2026-07-17,NSF-001,687.11,17.91,6.09,138.53,76.72,Reduced output; review recommended
+2026-07-17,RDR-002,803.15,23.98,0.02,136.99,52.9,Routine operation
+2026-07-17,CLG-003,1469.6,20.56,3.44,158.13,52.61,Routine operation
+2026-07-17,MTV-004,665.17,21.75,2.25,131.85,63.74,Routine operation
+2026-07-17,STF-005,926.07,20.85,3.15,146.28,54.03,Routine operation
+2026-07-18,NSF-001,1010.21,22.34,1.66,173.62,63.34,Routine operation
+2026-07-18,RDR-002,304.79,13.85,10.15,108.54,97.54,Major interruption; investigation required
+2026-07-18,CLG-003,1451.46,21.38,2.62,168.67,69.08,Routine operation
+2026-07-18,MTV-004,742.66,22.8,1.2,138.1,61.58,Routine operation
+2026-07-18,STF-005,1037.99,23.28,0.72,144.78,63.68,Routine operation
+2026-07-19,NSF-001,1145.89,22.4,1.6,168.28,60.79,Routine operation
+2026-07-19,RDR-002,910.16,21.86,2.14,149.88,77.91,Routine operation
+2026-07-19,CLG-003,1323.77,22.7,1.3,184.57,74.2,Routine operation
+2026-07-19,MTV-004,669.5,23.32,0.68,129.2,49.17,Routine operation
+2026-07-19,STF-005,1117.87,23.35,0.65,168.12,63.56,Routine operation
+2026-07-20,NSF-001,1132.37,23.65,0.35,147.98,76.43,Routine operation
+2026-07-20,RDR-002,983.5,22.73,1.27,157.51,70.74,Routine operation
+2026-07-20,CLG-003,1408.37,23.43,0.57,164.08,84.97,Routine operation
+2026-07-20,MTV-004,770.23,23.93,0.07,136.11,63.36,Routine operation
+2026-07-20,STF-005,1109.58,23.07,0.93,167.14,78.68,Routine operation
+2026-07-21,NSF-001,815.67,18.15,5.85,137.17,51.69,Reduced output; review recommended
+2026-07-21,RDR-002,977.7,23.75,0.25,158.02,72.31,Routine operation
+2026-07-21,CLG-003,1275.82,23.67,0.33,166.44,85.69,Routine operation
+2026-07-21,MTV-004,371.39,11.75,12.25,101.74,85.73,Major interruption; investigation required
+2026-07-21,STF-005,1026.14,22.78,1.22,181.71,81.94,Routine operation
+2026-07-22,NSF-001,1014.39,20.51,3.49,182.79,63.32,Routine operation
+2026-07-22,RDR-002,804.55,21.85,2.15,131.41,67.04,Routine operation
+2026-07-22,CLG-003,1607.49,22.58,1.42,204.14,63.95,Routine operation
+2026-07-22,MTV-004,681.63,22.51,1.49,137.6,56.36,Routine operation
+2026-07-22,STF-005,323.56,11.59,12.41,119.57,94.19,Major interruption; investigation required
+2026-07-23,NSF-001,994.27,23.65,0.35,141.61,70.59,Routine operation
+2026-07-23,RDR-002,923.74,21.32,2.68,168.71,51.05,Routine operation
+2026-07-23,CLG-003,1322.45,20.85,3.15,175.24,73.78,Routine operation
+2026-07-23,MTV-004,657.01,23.14,0.86,139.19,74.91,Routine operation
+2026-07-23,STF-005,585.91,17.96,6.04,131.24,71.32,Reduced output; review recommended
+2026-07-24,NSF-001,1275.21,21.09,2.91,144.53,72.92,Routine operation
+2026-07-24,RDR-002,898.98,22.81,1.19,136.41,72.92,Routine operation
+2026-07-24,CLG-003,1042.04,18.15,5.85,147.41,52.43,Reduced output; review recommended
+2026-07-24,MTV-004,696.82,22.27,1.73,149.3,57.65,Routine operation
+2026-07-24,STF-005,1078.19,22.75,1.25,169.13,63.9,Routine operation
+2026-07-25,NSF-001,1176.2,21.36,2.64,150.03,77.25,Routine operation
+2026-07-25,RDR-002,805.56,22.94,1.06,144.57,75.32,Routine operation
+2026-07-25,CLG-003,1239.02,21.5,2.5,176.18,82.55,Routine operation
+2026-07-25,MTV-004,704.65,20.52,3.48,138.97,65.99,Routine operation
+2026-07-25,STF-005,620.7,16.83,7.17,132.49,64.83,Reduced output; review recommended
+2026-07-26,NSF-001,1160.28,23.82,0.18,176.1,59.95,Routine operation
+2026-07-26,RDR-002,944.95,21.34,2.66,145.63,76.27,Routine operation
+2026-07-26,CLG-003,1435.11,21.83,2.17,162.22,58.64,Routine operation
+2026-07-26,MTV-004,695.1,22.57,1.43,143.99,60.63,Routine operation
+2026-07-26,STF-005,1085.81,23.53,0.47,166.87,67.75,Routine operation
+2026-07-27,NSF-001,1183.34,23.86,0.14,158.84,72.24,Routine operation
+2026-07-27,RDR-002,1011.73,22.35,1.65,164.37,69.34,Routine operation
+2026-07-27,CLG-003,1309.1,23.82,0.18,197.89,74.32,Routine operation
+2026-07-27,MTV-004,663.89,22.93,1.07,126.58,45.46,Routine operation
+2026-07-27,STF-005,697.1,18.34,5.66,129.4,80.31,Reduced output; review recommended
+2026-07-28,NSF-001,1213.63,21.38,2.62,145.78,83.51,Routine operation
+2026-07-28,RDR-002,921.63,21.18,2.82,169.24,74.31,Routine operation
+2026-07-28,CLG-003,375.8,11.82,12.18,125.93,106.6,Major interruption; investigation required
+2026-07-28,MTV-004,839.61,21.03,2.97,146.08,67.87,Routine operation
+2026-07-28,STF-005,915.52,22.11,1.89,150.71,47.55,Routine operation
+2026-07-29,NSF-001,1294.08,22.92,1.08,175.82,52.82,Routine operation
+2026-07-29,RDR-002,680.34,19.48,4.52,122.76,46.75,Reduced output; review recommended
+2026-07-29,CLG-003,1608.34,20.84,3.16,187.29,86.51,Routine operation
+2026-07-29,MTV-004,795.81,23.76,0.24,131.97,64.3,Routine operation
+2026-07-29,STF-005,785.0,18.72,5.28,128.22,69.22,Reduced output; review recommended
+2026-07-30,NSF-001,1259.92,21.33,2.67,159.27,72.07,Routine operation
+2026-07-30,RDR-002,629.77,17.29,6.71,125.47,49.57,Reduced output; review recommended
+2026-07-30,CLG-003,1392.12,22.38,1.62,187.47,68.07,Routine operation
+2026-07-30,MTV-004,670.44,22.74,1.26,147.68,56.13,Routine operation
+2026-07-30,STF-005,866.39,20.78,3.22,140.02,53.52,Routine operation
+2026-07-31,NSF-001,1295.0,23.86,0.14,162.31,71.16,Routine operation
+2026-07-31,RDR-002,363.39,12.34,11.66,107.58,91.68,Major interruption; investigation required
+2026-07-31,CLG-003,1488.32,21.58,2.42,165.08,83.46,Routine operation
+2026-07-31,MTV-004,725.62,22.88,1.12,128.87,74.01,Routine operation
+2026-07-31,STF-005,878.58,23.05,0.95,184.51,59.84,Routine operation
+2026-08-01,NSF-001,1027.72,23.59,0.41,182.22,53.94,Routine operation
+2026-08-01,RDR-002,831.09,23.05,0.95,137.08,57.2,Routine operation
+2026-08-01,CLG-003,1284.85,23.35,0.65,150.65,80.55,Routine operation
+2026-08-01,MTV-004,677.54,20.57,3.43,155.54,53.69,Routine operation
+2026-08-01,STF-005,808.73,19.16,4.84,127.88,47.24,Reduced output; review recommended
+2026-08-02,NSF-001,909.55,18.78,5.22,136.25,57.9,Reduced output; review recommended
+2026-08-02,RDR-002,529.41,16.84,7.16,127.46,50.22,Reduced output; review recommended
+2026-08-02,CLG-003,1091.95,17.71,6.29,146.68,77.49,Reduced output; review recommended
+2026-08-02,MTV-004,519.72,16.67,7.33,112.11,67.72,Reduced output; review recommended
+2026-08-02,STF-005,624.2,17.27,6.73,127.89,73.96,Reduced output; review recommended
+2026-08-03,NSF-001,1026.62,22.6,1.4,181.8,61.13,Routine operation
+2026-08-03,RDR-002,923.96,22.16,1.84,135.09,59.4,Routine operation
+2026-08-03,CLG-003,1105.5,18.46,5.54,142.71,50.45,Reduced output; review recommended
+2026-08-03,MTV-004,835.76,23.59,0.41,121.78,49.7,Routine operation
+2026-08-03,STF-005,604.73,16.96,7.04,133.09,69.64,Reduced output; review recommended
+2026-08-04,NSF-001,994.88,21.75,2.25,183.56,65.05,Routine operation
+2026-08-04,RDR-002,568.29,18.81,5.19,125.36,46.38,Reduced output; review recommended
+2026-08-04,CLG-003,1416.21,22.9,1.1,171.96,71.3,Routine operation
+2026-08-04,MTV-004,713.53,22.85,1.15,127.35,61.34,Routine operation
+2026-08-04,STF-005,873.2,23.09,0.91,154.26,56.24,Routine operation
+2026-08-05,NSF-001,1021.31,22.94,1.06,160.43,53.46,Routine operation
+2026-08-05,RDR-002,788.45,21.99,2.01,173.94,48.87,Routine operation
+2026-08-05,CLG-003,1272.19,21.19,2.81,193.15,76.25,Routine operation
+2026-08-05,MTV-004,791.18,22.33,1.67,158.2,52.42,Routine operation
+2026-08-05,STF-005,698.28,17.98,6.02,128.63,47.42,Reduced output; review recommended
+2026-08-06,NSF-001,1120.6,23.86,0.14,185.97,51.78,Routine operation
+2026-08-06,RDR-002,895.82,22.58,1.42,134.5,53.34,Routine operation
+2026-08-06,CLG-003,1247.04,22.61,1.39,164.4,82.26,Routine operation
+2026-08-06,MTV-004,769.43,22.22,1.78,159.65,47.24,Routine operation
+2026-08-06,STF-005,1046.33,20.52,3.48,144.45,77.76,Routine operation
+2026-08-07,NSF-001,1275.68,20.55,3.45,153.46,52.3,Routine operation
+2026-08-07,RDR-002,878.57,21.93,2.07,150.84,58.73,Routine operation
+2026-08-07,CLG-003,919.65,19.32,4.68,143.71,60.26,Reduced output; review recommended
+2026-08-07,MTV-004,691.22,21.02,2.98,148.44,64.63,Routine operation
+2026-08-07,STF-005,1055.08,20.9,3.1,172.13,67.51,Routine operation
+2026-08-08,NSF-001,1273.6,21.08,2.92,165.58,59.44,Routine operation
+2026-08-08,RDR-002,1017.41,22.57,1.43,139.35,70.97,Routine operation
+2026-08-08,CLG-003,1488.24,22.79,1.21,201.85,57.68,Routine operation
+2026-08-08,MTV-004,669.94,20.93,3.07,136.14,69.14,Routine operation
+2026-08-08,STF-005,965.58,23.76,0.24,148.67,61.51,Routine operation
+2026-08-09,NSF-001,1186.18,21.11,2.89,156.7,67.39,Routine operation
+2026-08-09,RDR-002,981.72,22.82,1.18,139.61,68.97,Routine operation
+2026-08-09,CLG-003,646.13,14.68,9.32,134.73,99.72,Major interruption; investigation required
+2026-08-09,MTV-004,741.24,22.43,1.57,145.91,47.81,Routine operation
+2026-08-09,STF-005,1024.26,22.78,1.22,178.66,54.39,Routine operation
+2026-08-10,NSF-001,1085.48,20.83,3.17,150.23,50.55,Routine operation
+2026-08-10,RDR-002,931.88,23.45,0.55,137.76,58.37,Routine operation
+2026-08-10,CLG-003,1447.41,22.29,1.71,172.02,78.76,Routine operation
+2026-08-10,MTV-004,379.37,14.71,9.29,95.15,85.43,Major interruption; investigation required
+2026-08-10,STF-005,1043.08,22.19,1.81,157.09,54.03,Routine operation
+2026-08-11,NSF-001,1155.28,22.79,1.21,158.81,80.12,Routine operation
+2026-08-11,RDR-002,964.76,21.74,2.26,177.62,46.7,Routine operation
+2026-08-11,CLG-003,1281.45,22.76,1.24,202.42,86.59,Routine operation
+2026-08-11,MTV-004,534.68,17.65,6.35,112.6,55.42,Reduced output; review recommended
+2026-08-11,STF-005,909.25,23.02,0.98,151.45,77.8,Routine operation
+2026-08-12,NSF-001,1051.74,23.13,0.87,175.41,69.54,Routine operation
+2026-08-12,RDR-002,447.64,12.52,11.48,113.02,90.85,Major interruption; investigation required
+2026-08-12,CLG-003,1143.83,17.16,6.84,142.7,51.86,Reduced output; review recommended
+2026-08-12,MTV-004,659.48,23.99,0.01,143.18,51.78,Routine operation
+2026-08-12,STF-005,1037.22,20.71,3.29,137.9,69.96,Routine operation
+2026-08-13,NSF-001,926.18,16.76,7.24,132.42,51.41,Reduced output; review recommended
+2026-08-13,RDR-002,793.62,21.33,2.67,144.63,77.84,Routine operation
+2026-08-13,CLG-003,1373.03,22.59,1.41,171.19,50.08,Routine operation
+2026-08-13,MTV-004,853.03,23.6,0.4,135.14,50.31,Routine operation
+2026-08-13,STF-005,601.07,19.44,4.56,127.26,47.26,Reduced output; review recommended
+2026-08-14,NSF-001,1010.81,22.38,1.62,151.95,79.99,Routine operation
+2026-08-14,RDR-002,602.65,18.46,5.54,124.39,53.58,Reduced output; review recommended
+2026-08-14,CLG-003,1293.01,22.04,1.96,163.79,87.01,Routine operation
+2026-08-14,MTV-004,480.12,18.73,5.27,117.5,43.86,Reduced output; review recommended
+2026-08-14,STF-005,921.67,22.74,1.26,145.59,70.44,Routine operation
+2026-08-15,NSF-001,1127.51,22.92,1.08,167.56,77.23,Routine operation
+2026-08-15,RDR-002,848.73,23.9,0.1,135.48,52.13,Routine operation
+2026-08-15,CLG-003,479.27,12.06,11.94,129.79,106.83,Major interruption; investigation required
+2026-08-15,MTV-004,728.34,22.0,2.0,148.57,72.74,Routine operation
+2026-08-15,STF-005,948.35,22.47,1.53,147.13,75.29,Routine operation
+2026-08-16,NSF-001,1284.02,23.46,0.54,155.37,73.25,Routine operation
+2026-08-16,RDR-002,879.24,20.64,3.36,147.57,77.82,Routine operation
+2026-08-16,CLG-003,1343.33,21.28,2.72,176.78,57.33,Routine operation
+2026-08-16,MTV-004,686.8,21.15,2.85,148.51,56.91,Routine operation
+2026-08-16,STF-005,979.72,21.63,2.37,162.77,79.97,Routine operation
+2026-08-17,NSF-001,1072.29,20.77,3.23,183.82,75.91,Routine operation
+2026-08-17,RDR-002,800.02,21.74,2.26,161.45,46.06,Routine operation
+2026-08-17,CLG-003,1354.06,22.86,1.14,203.81,64.9,Routine operation
+2026-08-17,MTV-004,617.85,17.98,6.02,113.72,56.11,Reduced output; review recommended
+2026-08-17,STF-005,678.05,19.04,4.96,129.08,75.26,Reduced output; review recommended
+2026-08-18,NSF-001,1016.18,23.94,0.06,144.79,71.85,Routine operation
+2026-08-18,RDR-002,882.92,23.25,0.75,174.53,75.37,Routine operation
+2026-08-18,CLG-003,1517.21,21.59,2.41,180.35,71.05,Routine operation
+2026-08-18,MTV-004,764.94,20.81,3.19,155.74,65.62,Routine operation
+2026-08-18,STF-005,940.69,22.47,1.53,161.6,80.06,Routine operation
+2026-08-19,NSF-001,660.99,18.59,5.41,138.8,80.8,Reduced output; review recommended
+2026-08-19,RDR-002,936.2,21.71,2.29,173.99,71.68,Routine operation
+2026-08-19,CLG-003,1455.46,21.82,2.18,159.36,86.94,Routine operation
+2026-08-19,MTV-004,531.95,17.3,6.7,117.64,55.53,Reduced output; review recommended
+2026-08-19,STF-005,959.76,22.76,1.24,167.66,55.34,Routine operation
+2026-08-20,NSF-001,1209.18,23.42,0.58,152.75,51.07,Routine operation
+2026-08-20,RDR-002,922.08,22.84,1.16,151.13,53.63,Routine operation
+2026-08-20,CLG-003,1325.92,21.57,2.43,203.75,51.1,Routine operation
+2026-08-20,MTV-004,822.54,21.83,2.17,154.74,70.34,Routine operation
+2026-08-20,STF-005,1028.61,20.53,3.47,140.66,68.18,Routine operation
+2026-08-21,NSF-001,1221.36,21.1,2.9,161.9,58.23,Routine operation
+2026-08-21,RDR-002,958.98,23.73,0.27,148.49,56.77,Routine operation
+2026-08-21,CLG-003,663.56,11.71,12.29,127.93,106.16,Major interruption; investigation required
+2026-08-21,MTV-004,691.94,20.72,3.28,151.12,46.58,Routine operation
+2026-08-21,STF-005,1046.85,23.03,0.97,171.37,76.58,Routine operation
+2026-08-22,NSF-001,1295.34,20.64,3.36,154.18,62.18,Routine operation
+2026-08-22,RDR-002,980.63,22.84,1.16,138.1,73.4,Routine operation
+2026-08-22,CLG-003,610.01,13.19,10.81,131.46,107.93,Major interruption; investigation required
+2026-08-22,MTV-004,848.72,22.26,1.74,165.28,43.96,Routine operation
+2026-08-22,STF-005,1099.53,20.85,3.15,162.99,71.97,Routine operation
+2026-08-23,NSF-001,1087.97,22.08,1.92,150.94,82.61,Routine operation
+2026-08-23,RDR-002,831.04,23.29,0.71,164.04,52.59,Routine operation
+2026-08-23,CLG-003,998.28,19.19,4.81,142.71,64.05,Reduced output; review recommended
+2026-08-23,MTV-004,381.36,10.14,13.86,102.08,88.24,Major interruption; investigation required
+2026-08-23,STF-005,928.15,21.61,2.39,155.71,65.7,Routine operation
+2026-08-24,NSF-001,810.29,18.61,5.39,133.28,62.86,Reduced output; review recommended
+2026-08-24,RDR-002,882.6,21.39,2.61,137.54,67.92,Routine operation
+2026-08-24,CLG-003,1451.05,23.24,0.76,157.59,60.08,Routine operation
+2026-08-24,MTV-004,782.26,22.88,1.12,134.06,62.5,Routine operation
+2026-08-24,STF-005,990.83,21.39,2.61,159.75,52.92,Routine operation
+2026-08-25,NSF-001,989.59,23.11,0.89,176.38,67.9,Routine operation
+2026-08-25,RDR-002,822.6,23.74,0.26,165.41,63.54,Routine operation
+2026-08-25,CLG-003,1557.35,22.85,1.15,201.99,69.49,Routine operation
+2026-08-25,MTV-004,705.34,21.37,2.63,163.74,71.9,Routine operation
+2026-08-25,STF-005,1060.82,23.93,0.07,172.34,51.0,Routine operation
+2026-08-26,NSF-001,1130.46,21.86,2.14,143.75,52.01,Routine operation
+2026-08-26,RDR-002,880.31,20.75,3.25,169.44,62.4,Routine operation
+2026-08-26,CLG-003,1618.55,21.46,2.54,173.01,57.54,Routine operation
+2026-08-26,MTV-004,715.98,23.64,0.36,133.61,69.71,Routine operation
+2026-08-26,STF-005,329.49,13.45,10.55,116.79,93.72,Major interruption; investigation required
+2026-08-27,NSF-001,1122.3,22.38,1.62,146.26,66.93,Routine operation
+2026-08-27,RDR-002,585.33,17.61,6.39,124.24,73.81,Reduced output; review recommended
+2026-08-27,CLG-003,885.2,17.85,6.15,142.78,89.65,Reduced output; review recommended
+2026-08-27,MTV-004,821.61,21.74,2.26,141.94,64.02,Routine operation
+2026-08-27,STF-005,1110.62,20.98,3.02,144.72,75.64,Routine operation
+2026-08-28,NSF-001,1140.24,21.84,2.16,141.57,54.02,Routine operation
+2026-08-28,RDR-002,796.76,22.99,1.01,147.93,53.4,Routine operation
+2026-08-28,CLG-003,841.01,17.27,6.73,143.61,53.19,Reduced output; review recommended
+2026-08-28,MTV-004,798.52,23.77,0.23,123.7,72.3,Routine operation
+2026-08-28,STF-005,906.95,22.64,1.36,173.65,50.31,Routine operation
+2026-08-29,NSF-001,994.37,20.71,3.29,174.24,57.74,Routine operation
+2026-08-29,RDR-002,788.16,21.67,2.33,164.51,78.74,Routine operation
+2026-08-29,CLG-003,1328.02,21.44,2.56,192.38,78.29,Routine operation
+2026-08-29,MTV-004,853.22,23.48,0.52,128.68,70.5,Routine operation
+2026-08-29,STF-005,1132.27,22.75,1.25,169.67,46.07,Routine operation

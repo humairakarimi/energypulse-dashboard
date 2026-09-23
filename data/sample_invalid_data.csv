@@ -1,0 +1,13 @@
+record_date,facility_code,production_volume,operating_hours,downtime_hours,pressure_kpa,temperature_c,notes
+,NSF-001,1139.02,23.86,0.14,170.93,81.13,Routine operation
+2035-01-01,RDR-002,696.12,19.15,4.85,127.39,51.7,Reduced output; review recommended
+2026-07-01,UNKNOWN-999,1353.22,23.97,0.03,190.24,54.1,Routine operation
+2026-07-01,MTV-004,,19.49,4.51,114.48,72.7,Reduced output; review recommended
+2026-07-01,STF-005,-125,21.8,2.2,140.48,66.62,Routine operation
+2026-07-02,NSF-001,1129.12,25,1.36,174.07,84.97,Routine operation
+2026-07-02,RDR-002,803.81,20.66,-2,158.96,69.12,Routine operation
+2026-07-02,CLG-003,1511.8,20,8,170.21,61.6,Routine operation
+2026-07-02,MTV-004,707.98,21.09,2.91,not-a-number,48.47,Routine operation
+2026-07-02,STF-005,994.43,22.82,1.18,143.07,,Routine operation
+2026-07-03,NSF-001,1090.29,22.92,1.08,167.87,76.44,Routine operation
+2026-07-03,NSF-001,1090.29,22.92,1.08,167.87,76.44,Routine operation

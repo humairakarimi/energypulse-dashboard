@@ -1,0 +1,16 @@
+# Python virtual environment
+.venv/
+venv/
+
+# Python-generated files
+__pycache__/
+*.py[cod]
+
+# PyCharm settings
+.idea/
+
+# Environment variables and secrets
+.env
+
+# macOS files
+.DS_Store
