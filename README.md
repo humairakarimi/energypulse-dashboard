@@ -1,6 +1,6 @@
-# OpsInsight — Phase 1 Sample Data
+# EnergyPulse — Phase 1 Sample Data
 
-This starter generates fictional operational records for the OpsInsight
+This starter generates fictional operational records for the EnergyPulse
 portfolio project. The values are for software demonstration only; they are
 not real company data or engineering and safety standards.
 

@@ -1,4 +1,4 @@
-"""Generate synthetic operational data for the OpsInsight portfolio project.
+"""Generate synthetic operational data for the EnergyPulse portfolio project.
 
 The values in this file are fictional demonstration values. They are not
 engineering or safety standards and must not be used for real operations.
