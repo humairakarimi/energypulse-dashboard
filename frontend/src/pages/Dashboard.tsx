@@ -1,4 +1,6 @@
 import MetricCard from "../components/dashboard/MetricCard.tsx";
+import ProductionChart from "../components/dashboard/ProductionChart";
+
 function Dashboard() {
   return (
     <main className="main-content">
@@ -9,13 +11,10 @@ function Dashboard() {
         </div>
 
         <select className="date-filter">
-          <option>Last 7 days</option>
           <option>Last 30 days</option>
+          <option>Last 7 days</option>
           <option>Last 90 days</option>
         </select>
-
-
-
 
       </header>
       <section className="metrics-grid">
@@ -61,6 +60,7 @@ function Dashboard() {
           status="negative"
         />
       </section>
+      <ProductionChart />
     </main>
   );
 }
