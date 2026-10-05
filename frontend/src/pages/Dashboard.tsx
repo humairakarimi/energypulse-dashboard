@@ -2,6 +2,7 @@ import MetricCard from "../components/dashboard/MetricCard.tsx";
 import ProductionChart from "../components/dashboard/ProductionChart";
 import DowntimeChart from "../components/dashboard/DowntimeChart";
 import OperationalStatusChart from "../components/dashboard/OperationalStatusChart";
+import RecentAlerts from "../components/dashboard/RecentAlerts";
 
 function Dashboard() {
   return (
@@ -67,7 +68,9 @@ function Dashboard() {
   <DowntimeChart />
   <OperationalStatusChart />
 </section>
+        <RecentAlerts />
     </main>
+
   );
 }
 
