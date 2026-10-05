@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+
 function Sidebar() {
     return (
         <aside className="sidebar">
@@ -6,12 +8,22 @@ function Sidebar() {
                 <p>Operations Analytics</p>
             </div>
             <nav className="sidebar-navigation">
-                <a className="nav-link active" href="#">
-                    Dashboard
-                </a>
-                <a className="nav-link" href="#">
-                    Data Records
-                </a>
+                <NavLink
+          to="/dashboard"
+          className={({ isActive }) =>
+            `nav-link ${isActive ? "active" : ""}`
+          }
+        >
+          Dashboard
+        </NavLink>
+                <NavLink
+          to="/records"
+          className={({ isActive }) =>
+            `nav-link ${isActive ? "active" : ""}`
+          }
+        >
+          Data Records
+        </NavLink>
 
                 <a className="nav-link" href="#">
                     Upload Data
