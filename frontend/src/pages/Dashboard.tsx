@@ -1,5 +1,7 @@
 import MetricCard from "../components/dashboard/MetricCard.tsx";
 import ProductionChart from "../components/dashboard/ProductionChart";
+import DowntimeChart from "../components/dashboard/DowntimeChart";
+import OperationalStatusChart from "../components/dashboard/OperationalStatusChart";
 
 function Dashboard() {
   return (
@@ -61,6 +63,10 @@ function Dashboard() {
         />
       </section>
       <ProductionChart />
+      <section className="secondary-charts-grid">
+  <DowntimeChart />
+  <OperationalStatusChart />
+</section>
     </main>
   );
 }

@@ -160,3 +160,15 @@
   height: 320px;
   margin-top: 24px;
 }
+
+.secondary-charts-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 1000px) {
+  .secondary-charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
