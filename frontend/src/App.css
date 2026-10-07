@@ -377,3 +377,59 @@
   color: #991b1b;
   background-color: #fee2e2;
 }
+
+/* Records search and filters */
+
+.records-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.records-search,
+.records-filter {
+  height: 42px;
+  padding: 0 14px;
+  color: #334155;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.records-search {
+  width: 280px;
+  margin-right: auto;
+}
+
+.records-filter {
+  min-width: 170px;
+  cursor: pointer;
+}
+
+.records-search:focus,
+.records-filter:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 12%);
+}
+
+.no-records-message {
+  padding: 40px 20px;
+  color: #64748b;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .records-search,
+  .records-filter {
+    width: 100%;
+  }
+
+  .records-search {
+    margin-right: 0;
+  }
+}
