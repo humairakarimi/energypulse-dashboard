@@ -1,15 +1,17 @@
+import RecordsTable from "../components/records/RecordsTable";
+
 function DataRecords() {
   return (
     <main className="main-content">
-      <header className="page-header">
+      <div className="page-header">
         <div>
           <h1>Data Records</h1>
           <p>View, search, and filter operational records.</p>
         </div>
-      </header>
+      </div>
 
       <section className="page-card">
-        <p>Operational records will appear here.</p>
+          <RecordsTable />
       </section>
     </main>
   );

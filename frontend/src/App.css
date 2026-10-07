@@ -297,3 +297,83 @@
   background-color: white;
   box-shadow: 0 4px 12px rgba(16, 42, 67, 0.06);
 }
+
+/* Data Records table */
+
+.records-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.records-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1000px;
+}
+
+.records-table th,
+.records-table td {
+  padding: 16px 18px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.records-table th {
+  color: #64748b;
+  background-color: #f8fafc;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.records-table td {
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+.records-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.records-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.records-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.records-table td:first-child {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* Status labels */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 78px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.status-badge.normal {
+  color: #166534;
+  background-color: #dcfce7;
+}
+
+.status-badge.warning {
+  color: #92400e;
+  background-color: #fef3c7;
+}
+
+.status-badge.critical {
+  color: #991b1b;
+  background-color: #fee2e2;
+}
