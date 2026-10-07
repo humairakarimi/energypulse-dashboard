@@ -76,6 +76,7 @@ function RecordsTable() {
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedFacility, setSelectedFacility] = useState("All");
     const [selectedStatus, setSelectedStatus] = useState("All");
+    const [selectedDate, setSelectedDate] = useState("");
 
     const facilities = [...new Set(records.map((record) => record.facility))];
 
@@ -89,9 +90,59 @@ function RecordsTable() {
 
         const matchesStatus =
             selectedStatus === "All" || record.status === selectedStatus;
+        const matchesDate =
+            selectedDate === "" || record.date === selectedDate;
 
-        return matchesSearch && matchesFacility && matchesStatus;
+        return (
+            matchesSearch &&
+            matchesFacility &&
+            matchesStatus &&
+            matchesDate
+        );
     });
+
+    function handleExport() {
+        const headers = [
+            "Facility",
+            "Date",
+            "Production",
+            "Operating Hours",
+            "Downtime",
+            "Pressure",
+            "Temperature",
+            "Status",
+        ];
+
+        const rows = filteredRecords.map((record) => [
+            record.facility,
+            record.date,
+            record.production,
+            record.operatingHours,
+            record.downtimeHours,
+            record.pressure,
+            record.temperature,
+            record.status,
+        ]);
+
+        const csvContent = [
+            headers.join(","),
+            ...rows.map((row) => row.join(",")),
+        ].join("\n");
+
+        const file = new Blob([csvContent], {
+            type: "text/csv;charset=utf-8;",
+        });
+
+        const downloadUrl = URL.createObjectURL(file);
+        const link = document.createElement("a");
+
+        link.href = downloadUrl;
+        link.download = "energy-records.csv";
+        link.click();
+
+        URL.revokeObjectURL(downloadUrl);
+    }
+
     return (
         <>
             <div className="records-toolbar">
@@ -116,6 +167,20 @@ function RecordsTable() {
                         </option>
                     ))}
                 </select>
+                <input
+                    type="date"
+                    className="records-date"
+                    value={selectedDate}
+                    onChange={(event) => setSelectedDate(event.target.value)}
+                />
+                <button
+                    type="button"
+                    className="export-button"
+                    onClick={handleExport}
+                    disabled={filteredRecords.length === 0}
+                >
+                    Export CSV
+                </button>
 
                 <select
                     className="records-filter"

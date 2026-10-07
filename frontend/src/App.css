@@ -422,14 +422,58 @@
   color: #64748b;
   text-align: center;
 }
-
 @media (max-width: 800px) {
   .records-search,
-  .records-filter {
+  .records-filter,
+  .records-date,
+  .export-button {
     width: 100%;
   }
 
   .records-search {
     margin-right: 0;
   }
+}
+.records-search,
+.records-filter,
+.records-date {
+  height: 42px;
+  padding: 0 14px;
+  color: #334155;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.export-button {
+  height: 42px;
+  padding: 0 18px;
+  color: #ffffff;
+  background-color: #0f766e;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.export-button:hover {
+  background-color: #115e59;
+}
+
+.export-button:active {
+  transform: translateY(1px);
+}
+
+.export-button:disabled {
+  color: #94a3b8;
+  background-color: #e2e8f0;
+  cursor: not-allowed;
 }
