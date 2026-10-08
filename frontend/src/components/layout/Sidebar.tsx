@@ -33,9 +33,14 @@ function Sidebar() {
                 >
                     Upload Data
                 </NavLink>
-                <a className="nav-link" href="#">
+                <NavLink
+                    to="/facilities"
+                    className={({isActive}) =>
+                        `nav-link ${isActive ? "active" : ""}`
+                    }
+                >
                     Facilities
-                </a>
+                </NavLink>
 
                 <a className="nav-link" href="#">
                     Alerts

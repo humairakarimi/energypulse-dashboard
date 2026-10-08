@@ -5,6 +5,7 @@ import DataRecords from "./pages/DataRecords.tsx"
 import Dashboard from "./pages/Dashboard";
 import RecordDetails from "./pages/RecordDetails";
 import UploadData from "./pages/UploadData";
+import Facilities from "./pages/Facilities";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/records" element={<DataRecords />} />
                 <Route path="/records/:recordId" element={<RecordDetails />} />
                 <Route path="/upload" element={<UploadData />} />
+                <Route path="/facilities" element={<Facilities />} />
 
             </Routes>
 
