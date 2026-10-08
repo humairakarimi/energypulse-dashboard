@@ -42,13 +42,23 @@ function Sidebar() {
                     Facilities
                 </NavLink>
 
-                <a className="nav-link" href="#">
+                <NavLink
+                    to="/alerts"
+                    className={({isActive}) =>
+                        `nav-link ${isActive ? "active" : ""}`
+                    }
+                >
                     Alerts
-                </a>
+                </NavLink>
 
-                <a className="nav-link" href="#">
+                <NavLink
+                    to="/reports"
+                    className={({isActive}) =>
+                        `nav-link ${isActive ? "active" : ""}`
+                    }
+                >
                     Reports
-                </a>
+                </NavLink>
 
             </nav>
         </aside>

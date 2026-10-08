@@ -6,6 +6,8 @@ import Dashboard from "./pages/Dashboard";
 import RecordDetails from "./pages/RecordDetails";
 import UploadData from "./pages/UploadData";
 import Facilities from "./pages/Facilities";
+import Alerts from "./pages/Alerts";
+import Reports from "./pages/Reports";
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
                 <Route path="/records/:recordId" element={<RecordDetails />} />
                 <Route path="/upload" element={<UploadData />} />
                 <Route path="/facilities" element={<Facilities />} />
+                <Route path="/alerts" element={<Alerts />} />
+                <Route path="/reports" element={<Reports />} />
 
             </Routes>
 
