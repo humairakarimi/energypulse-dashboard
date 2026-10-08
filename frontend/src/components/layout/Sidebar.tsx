@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import {NavLink} from "react-router-dom"
 
 function Sidebar() {
     return (
@@ -9,25 +9,30 @@ function Sidebar() {
             </div>
             <nav className="sidebar-navigation">
                 <NavLink
-          to="/dashboard"
-          className={({ isActive }) =>
-            `nav-link ${isActive ? "active" : ""}`
-          }
-        >
-          Dashboard
-        </NavLink>
+                    to="/dashboard"
+                    className={({isActive}) =>
+                        `nav-link ${isActive ? "active" : ""}`
+                    }
+                >
+                    Dashboard
+                </NavLink>
                 <NavLink
-          to="/records"
-          className={({ isActive }) =>
-            `nav-link ${isActive ? "active" : ""}`
-          }
-        >
-          Data Records
-        </NavLink>
+                    to="/records"
+                    className={({isActive}) =>
+                        `nav-link ${isActive ? "active" : ""}`
+                    }
+                >
+                    Data Records
+                </NavLink>
 
-                <a className="nav-link" href="#">
+                <NavLink
+                    to="/upload"
+                    className={({isActive}) =>
+                        `nav-link ${isActive ? "active" : ""}`
+                    }
+                >
                     Upload Data
-                </a>
+                </NavLink>
                 <a className="nav-link" href="#">
                     Facilities
                 </a>
