@@ -1,7 +1,9 @@
 import {useState} from "react";
 import {operationalRecords} from "../../data/operationalRecords";
+import {useNavigate} from "react-router-dom";
 
 function RecordsTable() {
+    const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedFacility, setSelectedFacility] = useState("All");
     const [selectedStatus, setSelectedStatus] = useState("All");
@@ -23,6 +25,7 @@ function RecordsTable() {
             selectedStatus === "All" || record.status === selectedStatus;
         const matchesDate =
             selectedDate === "" || record.date === selectedDate;
+
 
         return (
             matchesSearch &&
@@ -141,7 +144,17 @@ function RecordsTable() {
 
                     <tbody>
                     {filteredRecords.map((record) => (
-                        <tr key={record.id}>
+                        <tr
+                            key={record.id}
+                            className="clickable-record-row"
+                            onClick={() => navigate(`/records/${record.id}`)}
+                            tabIndex={0}
+                            onKeyDown={(event) => {
+                                if (event.key === "Enter") {
+                                    navigate(`/records/${record.id}`);
+                                }
+                            }}
+                        >
                             <td>{record.facility}</td>
                             <td>{record.date}</td>
                             <td>{record.production.toLocaleString()} MWh</td>
