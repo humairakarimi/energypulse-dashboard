@@ -1,19 +1,60 @@
-import {useState} from "react";
-import {operationalRecords} from "../../data/operationalRecords";
+import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 
+type OperationalStatus = "Normal" | "Warning" | "Critical";
+
+type OperationalRecord = {
+    id: number;
+    facility: string;
+    date: string;
+    production: number;
+    operatingHours: number;
+    downtimeHours: number;
+    pressure: number;
+    temperature: number;
+    status: OperationalStatus;
+};
+
 function RecordsTable() {
+    const [records, setRecords] = useState<OperationalRecord[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [loadError, setLoadError] = useState("");
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedFacility, setSelectedFacility] = useState("All");
     const [selectedStatus, setSelectedStatus] = useState("All");
     const [selectedDate, setSelectedDate] = useState("");
 
+    useEffect(() => {
+        async function loadRecords() {
+            try {
+                setIsLoading(true);
+                setLoadError("");
+
+                const response = await fetch("http://localhost:5002/api/records");
+
+                if (!response.ok) {
+                    throw new Error("The records request failed.");
+                }
+
+                const data: OperationalRecord[] = await response.json();
+                setRecords(data);
+            } catch (error) {
+                console.error("Failed to load records:", error);
+                setLoadError("Could not load operational records.");
+            } finally {
+                setIsLoading(false);
+            }
+        }
+
+        loadRecords();
+    }, []);
+
     const facilities = [
-        ...new Set(operationalRecords.map((record) => record.facility)),
+        ...new Set(records.map((record) => record.facility)),
     ];
 
-    const filteredRecords = operationalRecords.filter((record) => {
+    const filteredRecords = records.filter((record) => {
         const matchesSearch = record.facility
             .toLowerCase()
             .includes(searchTerm.toLowerCase());
@@ -75,6 +116,22 @@ function RecordsTable() {
         link.click();
 
         URL.revokeObjectURL(downloadUrl);
+    }
+
+    if (isLoading) {
+        return (
+            <p className="records-message">
+                Loading operational records...
+            </p>
+        );
+    }
+
+    if (loadError) {
+        return (
+            <p className="records-message records-error" role="alert">
+                {loadError}
+            </p>
+        );
     }
 
     return (
