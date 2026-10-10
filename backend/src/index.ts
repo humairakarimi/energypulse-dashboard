@@ -10,7 +10,10 @@ const PORT = process.env.PORT || 5002;
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5174",
+    ],
   }),
 );
 
@@ -85,6 +88,69 @@ app.get("/api/records", async (_request, response) => {
     response.status(500).json({
       status: "error",
       message: "Could not retrieve operational records",
+    });
+  }
+});
+
+app.get("/api/records/:id", async (request, response) => {
+  try {
+    const recordId = Number(request.params.id);
+
+    if (!Number.isInteger(recordId) || recordId <= 0) {
+      response.status(400).json({
+        status: "error",
+        message: "Invalid record ID",
+      });
+      return;
+    }
+
+    const result = await database.query(
+      `
+        SELECT
+          operational_records.id,
+          facilities.name AS facility,
+          operational_records.record_date AS date,
+          operational_records.production_mwh AS production,
+          operational_records.operating_hours AS "operatingHours",
+          operational_records.downtime_hours AS "downtimeHours",
+          operational_records.pressure_psi AS pressure,
+          operational_records.temperature_c AS temperature,
+          operational_records.status
+        FROM operational_records
+        JOIN facilities
+          ON facilities.id = operational_records.facility_id
+        WHERE operational_records.id = $1
+      `,
+      [recordId],
+    );
+
+    if (result.rows.length === 0) {
+      response.status(404).json({
+        status: "error",
+        message: "Operational record not found",
+      });
+      return;
+    }
+
+    const record = result.rows[0];
+
+    response.json({
+      id: record.id,
+      facility: record.facility,
+      date: record.date.toISOString().split("T")[0],
+      production: Number(record.production),
+      operatingHours: Number(record.operatingHours),
+      downtimeHours: Number(record.downtimeHours),
+      pressure: Number(record.pressure),
+      temperature: Number(record.temperature),
+      status: record.status,
+    });
+  } catch (error) {
+    console.error("Failed to retrieve operational record:", error);
+
+    response.status(500).json({
+      status: "error",
+      message: "Could not retrieve the operational record",
     });
   }
 });

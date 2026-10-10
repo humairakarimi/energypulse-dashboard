@@ -1,19 +1,80 @@
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { operationalRecords } from "../data/operationalRecords";
+
+type OperationalStatus = "Normal" | "Warning" | "Critical";
+
+type OperationalRecord = {
+  id: number;
+  facility: string;
+  date: string;
+  production: number;
+  operatingHours: number;
+  downtimeHours: number;
+  pressure: number;
+  temperature: number;
+  status: OperationalStatus;
+};
 
 function RecordDetails() {
   const { recordId } = useParams();
 
-  const record = operationalRecords.find(
-    (currentRecord) => currentRecord.id === Number(recordId),
-  );
+  const [record, setRecord] = useState<OperationalRecord | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadError, setLoadError] = useState("");
 
-  if (!record) {
+  useEffect(() => {
+    async function loadRecord() {
+      try {
+        setIsLoading(true);
+        setLoadError("");
+
+        const response = await fetch(
+          `http://localhost:5002/api/records/${recordId}`,
+        );
+
+        if (response.status === 404) {
+          throw new Error("Record not found.");
+        }
+
+        if (!response.ok) {
+          throw new Error("The record request failed.");
+        }
+
+        const data: OperationalRecord = await response.json();
+        setRecord(data);
+      } catch (error) {
+        console.error("Failed to load record:", error);
+
+        setLoadError(
+          error instanceof Error
+            ? error.message
+            : "Could not load the operational record.",
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    loadRecord();
+  }, [recordId]);
+
+  if (isLoading) {
+    return (
+      <main className="page-content">
+        <p className="records-message">Loading operational record...</p>
+      </main>
+    );
+  }
+
+  if (loadError || !record) {
     return (
       <main className="page-content">
         <div className="record-not-found">
           <h1>Record not found</h1>
-          <p>The requested operational record does not exist.</p>
+
+          <p>
+            {loadError || "The requested operational record does not exist."}
+          </p>
 
           <Link to="/records" className="back-link">
             ← Back to Data Records
@@ -35,9 +96,7 @@ function RecordDetails() {
           <p>Operational record from {record.date}</p>
         </div>
 
-        <span
-          className={`status-badge ${record.status.toLowerCase()}`}
-        >
+        <span className={`status-badge ${record.status.toLowerCase()}`}>
           {record.status}
         </span>
       </div>
