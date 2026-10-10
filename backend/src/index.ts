@@ -154,6 +154,83 @@ app.get("/api/records/:id", async (request, response) => {
     });
   }
 });
+app.get("/api/facilities", async (_request, response) => {
+  try {
+    const result = await database.query(`
+      SELECT
+        facilities.id,
+        facilities.name,
+        facilities.location,
+        facilities.facility_type AS "facilityType",
+        COUNT(all_records.id)::INTEGER AS "recordCount",
+        latest_record.id AS "latestRecordId",
+        latest_record.record_date AS "latestRecordDate",
+        latest_record.production_mwh AS production,
+        latest_record.operating_hours AS "operatingHours",
+        latest_record.downtime_hours AS "downtimeHours",
+        latest_record.status
+      FROM facilities
+      LEFT JOIN operational_records AS all_records
+        ON all_records.facility_id = facilities.id
+      LEFT JOIN LATERAL (
+        SELECT
+          operational_records.id,
+          operational_records.record_date,
+          operational_records.production_mwh,
+          operational_records.operating_hours,
+          operational_records.downtime_hours,
+          operational_records.status
+        FROM operational_records
+        WHERE operational_records.facility_id = facilities.id
+        ORDER BY operational_records.record_date DESC,
+                 operational_records.id DESC
+        LIMIT 1
+      ) AS latest_record ON TRUE
+      GROUP BY
+        facilities.id,
+        latest_record.id,
+        latest_record.record_date,
+        latest_record.production_mwh,
+        latest_record.operating_hours,
+        latest_record.downtime_hours,
+        latest_record.status
+      ORDER BY facilities.name ASC
+    `);
+
+    const facilities = result.rows.map((facility) => ({
+      id: facility.id,
+      name: facility.name,
+      location: facility.location,
+      facilityType: facility.facilityType,
+      recordCount: facility.recordCount,
+      latestRecordId: facility.latestRecordId,
+      latestRecordDate: facility.latestRecordDate
+        ? facility.latestRecordDate.toISOString().split("T")[0]
+        : null,
+      production:
+        facility.production === null ? null : Number(facility.production),
+      operatingHours:
+        facility.operatingHours === null
+          ? null
+          : Number(facility.operatingHours),
+      downtimeHours:
+        facility.downtimeHours === null
+          ? null
+          : Number(facility.downtimeHours),
+      status: facility.status,
+    }));
+
+    response.json(facilities);
+  } catch (error) {
+    console.error("Failed to retrieve facilities:", error);
+
+    response.status(500).json({
+      status: "error",
+      message: "Could not retrieve facilities",
+    });
+  }
+});
+
 
 app.listen(PORT, () => {
   console.log(`EnergyPulse server is running on http://localhost:${PORT}`);
