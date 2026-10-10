@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import { API_URL } from "../../config";
 
 type OperationalStatus = "Normal" | "Warning" | "Critical";
 
@@ -31,7 +32,7 @@ function RecordsTable() {
                 setIsLoading(true);
                 setLoadError("");
 
-                const response = await fetch("http://localhost:5002/api/records");
+                const response = await fetch(`${API_URL}/api/records`);
 
                 if (!response.ok) {
                     throw new Error("The records request failed.");

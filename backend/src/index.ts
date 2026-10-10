@@ -8,16 +8,32 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5002;
 
-app.use(
-  cors({
-    origin: [
+const allowedOrigins = process.env.FRONTEND_URL
+  ? [
       "http://localhost:5173",
       "http://localhost:5174",
-    ],
+      process.env.FRONTEND_URL,
+    ]
+  : [
+      "http://localhost:5173",
+      "http://localhost:5174",
+    ];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
   }),
 );
 
 app.use(express.json());
+
+app.get("/", (_request, response) => {
+  response.json({
+    status: "success",
+    message: "EnergyPulse API is running",
+    documentation: "/api/health",
+  });
+});
 
 app.get("/api/health", (_request, response) => {
   response.json({
