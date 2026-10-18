@@ -1,6 +1,6 @@
-import {useEffect, useState} from "react";
-import {Link, useParams} from "react-router-dom";
-import {API_URL} from "../config";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useParams } from "react-router-dom";
+import { API_URL } from "../config";
 
 type OperationalStatus = "Normal" | "Warning" | "Critical";
 
@@ -18,6 +18,24 @@ type OperationalRecord = {
 
 function RecordDetails() {
     const {recordId} = useParams();
+
+    const location = useLocation();
+
+const backPages: Record<string, string> = {
+  "/dashboard": "Dashboard",
+  "/records": "Data Records",
+  "/facilities": "Facilities",
+  "/alerts": "Alerts",
+};
+
+const from = location.state?.from;
+
+const backPath =
+  typeof from === "string" && Object.hasOwn(backPages, from)
+    ? from
+    : "/records";
+
+const backLabel = backPages[backPath];
 
     const [record, setRecord] = useState<OperationalRecord | null>(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -77,9 +95,9 @@ function RecordDetails() {
                         {loadError || "The requested operational record does not exist."}
                     </p>
 
-                    <Link to="/records" className="back-link">
-                        ← Back to Data Records
-                    </Link>
+                    <Link to={backPath} className="back-link">
+  ← Back to {backLabel}
+</Link>
                 </div>
             </main>
         );
@@ -87,9 +105,9 @@ function RecordDetails() {
 
     return (
         <main className="page-content">
-            <Link to="/records" className="back-link">
-                ← Back to Data Records
-            </Link>
+            <Link to={backPath} className="back-link">
+  ← Back to {backLabel}
+</Link>
 
             <div className="record-details-header">
                 <div>

@@ -1,112 +1,85 @@
-type AlertStatus = "Open" | "Acknowledged" | "Resolved";
-type AlertSeverity = "Critical" | "Warning" | "Info";
+import { Link } from "react-router-dom";
 
-type Alert = {
-  id: number;
-  date: string;
-  facility: string;
-  severity: AlertSeverity;
-  message: string;
-  status: AlertStatus;
+type RecentAlertsProps = {
+  records: {
+    id: number;
+    date: string;
+    facility: string;
+    status: "Normal" | "Warning" | "Critical";
+    downtimeHours: number;
+  }[];
 };
 
-const recentAlerts: Alert[] = [
-  {
-    id: 1,
-    date: "Sep 30, 2:32 PM",
-    facility: "East Plant",
-    severity: "Critical",
-    message: "Turbine offline due to high vibration levels.",
-    status: "Open",
-  },
-  {
-    id: 2,
-    date: "Sep 30, 11:18 AM",
-    facility: "North Plant",
-    severity: "Warning",
-    message: "Generator output below expected range.",
-    status: "Open",
-  },
-  {
-    id: 3,
-    date: "Sep 29, 4:05 PM",
-    facility: "Central Plant",
-    severity: "Warning",
-    message: "Inlet temperature higher than normal.",
-    status: "Acknowledged",
-  },
-  {
-    id: 4,
-    date: "Sep 29, 9:27 AM",
-    facility: "West Plant",
-    severity: "Info",
-    message: "Scheduled maintenance completed.",
-    status: "Resolved",
-  },
-  {
-    id: 5,
-    date: "Sep 28, 8:14 PM",
-    facility: "South Plant",
-    severity: "Warning",
-    message: "Pressure level approaching threshold.",
-    status: "Open",
-  },
-];
+function RecentAlerts({ records }: RecentAlertsProps) {
+  const recentAlerts = records
+    .filter((record) => record.status !== "Normal")
+    .sort(
+      (a, b) =>
+        b.date.localeCompare(a.date) || b.id - a.id,
+    )
+    .slice(0, 5);
 
-function RecentAlerts() {
   return (
     <section className="alerts-card">
       <div className="alerts-heading">
         <div>
           <h2>Recent Alerts</h2>
-          <p>Latest operational events requiring review</p>
+          <p>Warning and critical statuses from latest facility records</p>
         </div>
 
-        <button type="button" className="view-all-button">
+        <Link to="/alerts" className="view-all-button">
           View All
-        </button>
+        </Link>
       </div>
 
-      <div className="table-wrapper">
-        <table className="alerts-table">
-          <thead>
-            <tr>
-              <th>Date and Time</th>
-              <th>Facility</th>
-              <th>Severity</th>
-              <th>Message</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {recentAlerts.map((alert) => (
-              <tr key={alert.id}>
-                <td>{alert.date}</td>
-                <td>{alert.facility}</td>
-
-                <td>
-                  <span
-                    className={`severity-badge ${alert.severity.toLowerCase()}`}
-                  >
-                    {alert.severity}
-                  </span>
-                </td>
-
-                <td>{alert.message}</td>
-
-                <td>
-                  <span
-                    className={`status-badge ${alert.status.toLowerCase()}`}
-                  >
-                    {alert.status}
-                  </span>
-                </td>
+      {recentAlerts.length === 0 ? (
+        <p>No warning or critical statuses in the latest facility records.</p>
+      ) : (
+        <div className="table-wrapper">
+          <table className="alerts-table">
+            <thead>
+              <tr>
+                <th>Record Date</th>
+                <th>Facility</th>
+                <th>Severity</th>
+                <th>Summary</th>
+                <th>Details</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+
+            <tbody>
+              {recentAlerts.map((record) => (
+                <tr key={record.id}>
+                  <td>{record.date}</td>
+                  <td>{record.facility}</td>
+
+                  <td>
+                    <span
+                      className={`severity-badge ${record.status.toLowerCase()}`}
+                    >
+                      {record.status}
+                    </span>
+                  </td>
+
+                  <td>
+                    {record.status} status reported with{" "}
+                    {record.downtimeHours} h of downtime.
+                  </td>
+
+                  <td>
+                    <Link
+  to={`/records/${record.id}`}
+  state={{ from: "/dashboard" }}
+>
+  Review record →
+</Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </section>
   );
 }

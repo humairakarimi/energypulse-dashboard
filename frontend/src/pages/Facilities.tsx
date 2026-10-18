@@ -147,6 +147,7 @@ function Facilities() {
                         {facility.latestRecordId !== null ? (
                             <Link
                                 to={`/records/${facility.latestRecordId}`}
+                                state={{ from: "/facilities" }}
                                 className="facility-details-link"
                             >
                                 View latest facility record →

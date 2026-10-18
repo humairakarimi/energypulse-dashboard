@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import database from "./database.js";
+import { parse } from "csv-parse/sync";
+import type { PoolClient } from "pg";
 
 dotenv.config();
 
@@ -246,7 +248,254 @@ app.get("/api/facilities", async (_request, response) => {
     });
   }
 });
+type ImportRecord = {
+  facility: string;
+  date: string;
+  production: number;
+  operatingHours: number;
+  downtimeHours: number;
+  pressure: number;
+  temperature: number;
+  status: string;
+};
 
+app.post(
+  "/api/records/import",
+  express.text({ type: "text/csv", limit: "1mb" }),
+  async (request, response) => {
+    const requiredHeaders = [
+      "facility",
+      "date",
+      "production",
+      "operatingHours",
+      "downtimeHours",
+      "pressure",
+      "temperature",
+      "status",
+    ];
+
+    let records: ImportRecord[];
+
+    // Validate the entire file before saving anything.
+    try {
+      if (typeof request.body !== "string" || !request.body.trim()) {
+        throw new Error("Send a non-empty CSV file as text/csv.");
+      }
+
+      const rows = parse(request.body, {
+        bom: true,
+        skip_empty_lines: true,
+        trim: true,
+        max_record_size: 8192,
+      }) as string[][];
+
+      const headers = rows.shift();
+
+      if (
+        !headers ||
+        headers.length !== requiredHeaders.length ||
+        new Set(headers).size !== headers.length ||
+        requiredHeaders.some((header) => !headers.includes(header))
+      ) {
+        throw new Error(
+          `CSV headers must be: ${requiredHeaders.join(",")}`,
+        );
+      }
+
+      const validatedHeaders = headers;
+
+      if (rows.length === 0 || rows.length > 1000) {
+        throw new Error("Upload between 1 and 1,000 data rows.");
+      }
+
+      records = rows.map((cells, index) => {
+        const rowNumber = index + 2;
+
+        function fail(message: string): never {
+          throw new Error(`Row ${rowNumber}: ${message}`);
+        }
+
+        if (cells.length !== headers.length) {
+          fail("The number of values does not match the headers.");
+        }
+
+        function field(name: string): string {
+          const value = cells[validatedHeaders.indexOf(name)];
+
+          if (!value) {
+            fail(`${name} is required.`);
+          }
+
+          return value;
+        }
+
+        function numberField(
+          name: string,
+          minimum: number,
+          maximum: number,
+        ): number {
+          const text = field(name);
+
+          if (!/^-?\d+(?:\.\d{1,2})?$/.test(text)) {
+            fail(`${name} must be a number with at most 2 decimal places.`);
+          }
+
+          const value = Number(text);
+
+          if (!Number.isFinite(value) || value < minimum || value > maximum) {
+            fail(`${name} must be between ${minimum} and ${maximum}.`);
+          }
+
+          return value;
+        }
+
+        const date = field("date");
+
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+          fail("date must use YYYY-MM-DD.");
+        }
+
+        const parsedDate = new Date(`${date}T00:00:00.000Z`);
+
+        if (
+          Number.isNaN(parsedDate.getTime()) ||
+          parsedDate.toISOString().slice(0, 10) !== date
+        ) {
+          fail("date must be a valid calendar date.");
+        }
+
+        const status = field("status");
+
+        if (!["Normal", "Warning", "Critical"].includes(status)) {
+          fail("status must be Normal, Warning, or Critical.");
+        }
+
+        const operatingHours = numberField("operatingHours", 0, 24);
+        const downtimeHours = numberField("downtimeHours", 0, 24);
+
+        if (Math.round((operatingHours + downtimeHours) * 100) > 2400) {
+          fail("operatingHours plus downtimeHours cannot exceed 24.");
+        }
+
+        return {
+          facility: field("facility"),
+          date,
+          production: numberField("production", 0, 9999999999.99),
+          operatingHours,
+          downtimeHours,
+          pressure: numberField("pressure", 0, 999999.99),
+          temperature: numberField("temperature", -9999.99, 9999.99),
+          status,
+        };
+      });
+    } catch (error) {
+      response.status(400).json({
+        status: "error",
+        message:
+          error instanceof Error ? error.message : "Invalid CSV file.",
+      });
+      return;
+    }
+
+    // A dedicated connection keeps all inserts in one transaction.
+    let client: PoolClient | undefined;
+
+    try {
+      client = await database.connect();
+      await client.query("BEGIN");
+
+      const facilityResult = await client.query<{
+        id: number;
+        name: string;
+      }>("SELECT id, name FROM facilities");
+
+      const facilityIds = new Map(
+        facilityResult.rows.map((facility) => [
+          facility.name,
+          facility.id,
+        ]),
+      );
+
+      const unknownFacilities = [
+        ...new Set(
+          records
+            .filter((record) => !facilityIds.has(record.facility))
+            .map((record) => record.facility),
+        ),
+      ];
+
+      if (unknownFacilities.length > 0) {
+        await client.query("ROLLBACK");
+
+        response.status(400).json({
+          status: "error",
+          message:
+            `Unknown facilities: ${unknownFacilities.join(", ")}. ` +
+            "Use existing facility names exactly.",
+        });
+        return;
+      }
+
+      let imported = 0;
+
+      for (const record of records) {
+        const result = await client.query(
+          `
+            INSERT INTO operational_records (
+              facility_id,
+              record_date,
+              production_mwh,
+              operating_hours,
+              downtime_hours,
+              pressure_psi,
+              temperature_c,
+              status
+            )
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+            ON CONFLICT (facility_id, record_date) DO NOTHING
+            RETURNING id
+          `,
+          [
+            facilityIds.get(record.facility),
+            record.date,
+            record.production,
+            record.operatingHours,
+            record.downtimeHours,
+            record.pressure,
+            record.temperature,
+            record.status,
+          ],
+        );
+
+        imported += result.rowCount ?? 0;
+      }
+
+      await client.query("COMMIT");
+
+      response.json({
+        status: "success",
+        imported,
+        skipped: records.length - imported,
+        message: `Imported ${imported} records. Skipped ${
+          records.length - imported
+        } duplicate facility/date pairs.`,
+      });
+    } catch (error) {
+      if (client) {
+        await client.query("ROLLBACK").catch(() => {});
+      }
+
+      console.error("CSV import failed:", error);
+
+      response.status(500).json({
+        status: "error",
+        message: "Import failed. No records from this upload were saved.",
+      });
+    } finally {
+      client?.release();
+    }
+  },
+);
 
 app.listen(PORT, () => {
   console.log(`EnergyPulse server is running on http://localhost:${PORT}`);
